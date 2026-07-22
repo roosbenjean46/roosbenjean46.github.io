@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- EmailJS -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   
   <style>
     /* ===== RESET & VARIABLES ===== */
@@ -649,7 +647,7 @@
     </div>
   </section>
 
-  <!-- ========== CONTACT (AVEC EMAILJS) ========== -->
+  <!-- ========== CONTACT (AVEC FORMSUBMIT) ========== -->
   <section id="contact" style="background: var(--gray);">
     <div class="container">
       <div class="text-center">
@@ -674,9 +672,9 @@
           </div>
         </div>
 
-        <!-- FORMULAIRE CONTACT -->
+        <!-- ===== FORMULAIRE CONTACT AVEC FORMSUBMIT ===== -->
         <div class="contact-form">
-          <form id="contact-form">
+          <form action="https://formsubmit.co/roosbenjean46@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Votre nom complet" required>
             <input type="email" name="email" placeholder="Votre adresse email" required>
             <input type="text" name="subject" placeholder="Objet (ex: Offre de stage / Projet)">
@@ -717,35 +715,32 @@
       });
     });
 
-    // ===== EMAILJS =====
-    (function() {
-        emailjs.init({
-            publicKey: "Ct8m1-lKhC3lOw-Cf", // <--- METTEZ VOTRE PUBLIC KEY ICI
-        });
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    // ===== FORMSUBMIT - Envoi sans recharger la page =====
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        // Bouton "en cours d'envoi"
         const btn = this.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         btn.disabled = true;
-
-        emailjs.sendForm(
-            'service_5nlq8b3',    // <--- METTEZ VOTRE SERVICE ID ICI
-            'template_9dvbauv',   // <--- METTEZ VOTRE TEMPLATE ID ICI
-            this
-        )
-        .then(function(response) {
-            alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai bientôt.');
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            alert('❌ Oups ! Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.');
-            console.log('Erreur:', error);
+        
+        fetch(this.action, {
+            method: this.method,
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai bientôt.');
+                this.reset();
+            } else {
+                alert('❌ Oops ! Une erreur est survenue. Veuillez réessayer.');
+            }
+        })
+        .catch(error => {
+            alert('❌ Oops ! Une erreur est survenue. Veuillez réessayer.');
+        })
+        .finally(() => {
             btn.innerHTML = originalText;
             btn.disabled = false;
         });
