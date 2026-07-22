@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - [VOTRE NOM]</title>
-  <!-- Font Awesome pour les icônes -->
+  <title>Portfolio - Roosben Jean</title>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts pour une belle typographie -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
   <style>
     /* ===== RESET & VARIABLES ===== */
     * {
@@ -17,9 +20,9 @@
     }
 
     :root {
-      --primary: #4f46e5; /* Indigo moderne */
+      --primary: #4f46e5;
       --primary-dark: #3730a3;
-      --secondary: #0f172a; /* Bleu foncé */
+      --secondary: #0f172a;
       --gray: #f1f5f9;
       --text: #1e293b;
       --text-light: #64748b;
@@ -41,7 +44,7 @@
       padding: 0 25px;
     }
 
-    /* ===== HEADER / NAVIGATION ===== */
+    /* ===== NAVIGATION ===== */
     nav {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
@@ -94,7 +97,7 @@
       color: var(--secondary);
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO ===== */
     .hero {
       padding: 140px 0 80px;
       background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
@@ -195,12 +198,18 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto;
-      font-size: 6rem;
-      color: white;
       box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    /* ===== SECTION GÉNÉRIQUE ===== */
+    .hero-image .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* ===== SECTIONS ===== */
     section {
       padding: 80px 0;
     }
@@ -460,10 +469,9 @@
       .hero-text h1 {
         font-size: 2.4rem;
       }
-      .hero-image .avatar {
+      .hero-image .image {
         width: 200px;
         height: 200px;
-        font-size: 4rem;
       }
 
       .about-stats {
@@ -517,10 +525,8 @@
       </div>
       <div class="hero-image">
         <div class="image">
-          <img src="Roos.png" alt="Photo" style="width:100%; border-radius:25%;"> 
-      </div>
+          <img src="Roos.png" alt="Photo Roosben Jean">
         </div>
-        <!-- Si vous avez une vraie photo, remplacez la balise <i> par <img src="votrephoto.jpg" alt="Photo" style="width:100%; border-radius:50%;"> -->
       </div>
     </div>
   </section>
@@ -536,11 +542,11 @@
             Ma formation en Informatique m'a permis d'acquérir une solide maîtrise du développement d'applications web et mobile, de la conception de bases de données et de la gestion de projets.
           </p>
           <p>
-            <strong> Mon objectif :</strong> Mettre mes compétences au service d'une communauté en gérant ses applications web, mobile et bases de données. 
+            <strong>Mon objectif :</strong> Mettre mes compétences au service d'une communauté en gérant ses applications web, mobile et bases de données. 
             Je souhaite apporter une expérience utilisateur fluide, sécurisée et moderne, tout en facilitant l'accès à l'information pour tous les membres.
           </p>
           <p>
-            <strong> Mon projet de fin d'études :</strong> Je travaille actuellement sur une plateforme web dédiée à la formation en ligne des jeunes pour une institution éducative.
+            <strong>Mon projet de fin d'études :</strong> Je travaille actuellement sur une plateforme web dédiée à la formation en ligne des jeunes pour une institution éducative.
           </p>
           <a href="#contact" class="btn btn-primary" style="margin-top: 15px;">Discutons de votre projet</a>
         </div>
@@ -580,13 +586,10 @@
 
       <div class="projets-grid">
 
-        <!-- CARTE 1 : PROJET DE FIN D'ETUDES (LE PLUS IMPORTANT) -->
         <div class="projet-card">
-          <div class="icon-projet"><i class=""></i></div>
-          <!--<div class="icon-projet"><i class="fas fa-star"></i></div>-->
           <span class="pfe-badge"><i class="fas fa-graduation-cap"></i> Projet de fin d'études</span>
           <h3>SGCH</h3>
-          <p>Plateforme web développée pour HECEFOP. Elle permet de gerer des cours et formations en lignes.</p>
+          <p>Plateforme web développée pour HECEFOP. Elle permet de gérer des cours et formations en ligne.</p>
           <div class="tags">
             <span>PHP / Laravel</span>
             <span>MySQL</span>
@@ -595,15 +598,11 @@
           </div>
           <p><strong>Mon rôle :</strong> Analyse des besoins, conception de la base de données, développement back-end, et intégration de l'interface admin.</p>
           <a href="#" style="color: var(--primary); font-weight: 600; text-decoration: none;">En savoir plus →</a>
-          <!-- Remplacez le '#' par un lien vers votre GitHub ou une démo si disponible -->
         </div>
 
-        <!-- CARTE 2 : AUTRE PROJET -->
         <div class="projet-card">
-          <div class="icon-projet"><i class=""></i></div>
-          <!--<div class="icon-projet"><i class="fas fa-globe"></i></div>-->
-          <h3>Site de publicite pour entreprise</h3>
-          <p>Création d'un site dynamique responsive pour gerer les publicites des differentes entreprises.</p>
+          <h3>Site de publicité pour entreprise</h3>
+          <p>Création d'un site dynamique responsive pour gérer les publicités des différentes entreprises.</p>
           <div class="tags">
             <span>HTML5</span>
             <span>CSS3</span>
@@ -612,17 +611,14 @@
           <a href="#" style="color: var(--primary); font-weight: 600; text-decoration: none;">Voir le site →</a>
         </div>
 
-        <!-- CARTE 3 : AUTRE PROJET -->
         <div class="projet-card">
-          <div class="icon-projet"><i class=""></i></div>
-          <!--<div class="icon-projet"><i class="fas fa-boxes"></i></div>-->
-          <h3>Application l'organisation KOZEJEN YO</h3>
+          <h3>Application KOZE JEN YO</h3>
           <p>Application web développée avec WordPress permettant de gérer les différentes activités et les événements de l'organisation.</p>
           <div class="tags">
-            <span>Php</span>
+            <span>PHP</span>
             <span>WordPress</span>
           </div>
-          <a href="https://www.kozejenyo.org" style="color: var(--primary); font-weight: 600; text-decoration: none;">Voir le site →</a>
+          <a href="https://www.kozejenyo.org" target="_blank" style="color: var(--primary); font-weight: 600; text-decoration: none;">Voir le site →</a>
         </div>
 
       </div>
@@ -633,7 +629,7 @@
   <section id="competences">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title"> Mes compétences techniques</h2>
+        <h2 class="section-title">Mes compétences techniques</h2>
         <p class="section-sub">Les technologies que j'utilise pour créer et gérer des sites web performants.</p>
       </div>
       <div class="skills-container">
@@ -653,11 +649,11 @@
     </div>
   </section>
 
-  <!-- ========== CONTACT ========== -->
+  <!-- ========== CONTACT (AVEC EMAILJS) ========== -->
   <section id="contact" style="background: var(--gray);">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-title"> Contactez-moi</h2>
+        <h2 class="section-title">Contactez-moi</h2>
         <p class="section-sub">Prêt à collaborer pour votre projet communautaire ? Échangeons !</p>
       </div>
 
@@ -666,26 +662,28 @@
           <h3 style="margin-bottom: 25px;">Mes coordonnées</h3>
           <p><i class="fas fa-envelope"></i> <a href="mailto:roosbenjean46@gmail.com" style="color: var(--text); text-decoration: none;">roosbenjean46@gmail.com</a></p>
           <p><i class="fas fa-phone"></i> (+509) 33 87 35 21</p>
-          <p><i class="fas fa-map-marker-alt"></i>Petion-Ville, Haïti</p>
-          <p><i class="fab fa-github"></i> <a href="#" style="color: var(--text); text-decoration: none;">github.com/roosbenjean</a></p>
-          <p><i class="fab fa-linkedin"></i> <a href="#" style="color: var(--text); text-decoration: none;">linkedin.com/in/roosbenjean</a></p>
+          <p><i class="fas fa-map-marker-alt"></i> Pétion-Ville, Haïti</p>
+          <p><i class="fab fa-github"></i> <a href="https://github.com/roosbenjean46" target="_blank" style="color: var(--text); text-decoration: none;">github.com/roosbenjean46</a></p>
+          <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/roosben-jean-b54560235" target="_blank" style="color: var(--text); text-decoration: none;">linkedin.com/in/roosben-jean</a></p>
           
           <div style="margin-top: 30px; padding: 20px; background: #eef2ff; border-radius: 15px;">
-            <strong> Téléchargez mon CV</strong><br>
+            <strong>📄 Téléchargez mon CV</strong><br>
             <a href="moncv.html" class="btn btn-primary" style="margin-top: 10px; display: inline-block; font-size: 0.9rem; padding: 10px 25px;">
-              <i class="fas fa-download"></i> CV en PDF
+              <i class="fas fa-download"></i> Voir mon CV
             </a>
           </div>
         </div>
 
+        <!-- FORMULAIRE CONTACT -->
         <div class="contact-form">
-          <form action="#" method="POST">
-            <!-- Remplacez '#' par votre script de traitement (ex: Formspree) -->
-            <input type="text" placeholder="Votre nom complet" required>
-            <input type="email" placeholder="Votre adresse email" required>
-            <input type="text" placeholder="Objet (ex: Offre de stage / Projet)">
-            <textarea placeholder="Parlez-moi de votre projet ou de votre offre..." required></textarea>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+          <form id="contact-form">
+            <input type="text" name="name" placeholder="Votre nom complet" required>
+            <input type="email" name="email" placeholder="Votre adresse email" required>
+            <input type="text" name="subject" placeholder="Objet (ex: Offre de stage / Projet)">
+            <textarea name="message" placeholder="Parlez-moi de votre projet ou de votre offre..." required></textarea>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
           </form>
         </div>
       </div>
@@ -696,28 +694,61 @@
   <footer>
     <div class="container">
       <div class="socials">
-        <a href="https://github.com/roosbenjean46" aria-label="roosbenjean46"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/roosben-jean-b54560235" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://twitter.com/roosben_jean" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com/roosbenjean46" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/roosben-jean-b54560235" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="mailto:roosbenjean46@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
       <p style="margin-bottom: 5px;">© 2026 Roosben Jean. Informaticien.</p>
-    <!--  <p style="font-size: 0.9rem; opacity: 0.7;">Conçu avec <i class="fas fa-heart" style="color: #ef4444;"></i> pour la communauté</p>-->
     </div>
   </footer>
 
-  <!-- ========== JAVASCRIPT (Menu Mobile) ========== -->
+  <!-- ========== JAVASCRIPT ========== -->
   <script>
+    // Menu mobile
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('active');
     }
 
-    // Fermer le menu quand on clique sur un lien (sur mobile)
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
       });
+    });
+
+    // ===== EMAILJS =====
+    (function() {
+        emailjs.init({
+            publicKey: "Ct8m1-lKhC3lOw-Cf", // <--- METTEZ VOTRE PUBLIC KEY ICI
+        });
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Bouton "en cours d'envoi"
+        const btn = this.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+        btn.disabled = true;
+
+        emailjs.sendForm(
+            'service_5nlq8b3',    // <--- METTEZ VOTRE SERVICE ID ICI
+            'template_9dvbauv',   // <--- METTEZ VOTRE TEMPLATE ID ICI
+            this
+        )
+        .then(function(response) {
+            alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai bientôt.');
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            alert('❌ Oups ! Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.');
+            console.log('Erreur:', error);
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
     });
   </script>
 
