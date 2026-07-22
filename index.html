@@ -382,38 +382,11 @@
     }
 
     .contact-form {
-      flex: 2;
+      flex: 1;
       min-width: 280px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      border: 2px solid #e2e8f0;
-      border-radius: 15px;
-      font-size: 1rem;
-      transition: 0.3s;
-      font-family: inherit;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-    }
-
-    .contact-form textarea {
-      height: 150px;
-      resize: vertical;
-    }
-
-    .contact-form .btn {
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* ===== FOOTER ===== */
@@ -478,6 +451,7 @@
 
       .contact-wrapper {
         padding: 25px;
+        flex-direction: column;
       }
     }
 
@@ -647,12 +621,12 @@
     </div>
   </section>
 
-  <!-- ========== CONTACT (AVEC FORMSUBMIT) ========== -->
+  <!-- ========== CONTACT (AVEC BOUTON EMAIL) ========== -->
   <section id="contact" style="background: var(--gray);">
     <div class="container">
       <div class="text-center">
         <h2 class="section-title">Contactez-moi</h2>
-        <p class="section-sub">Prêt à collaborer pour votre projet communautaire ? Échangeons !</p>
+        <p class="section-sub">Prêt à collaborer pour votre projet ? Contactez-moi directement !</p>
       </div>
 
       <div class="contact-wrapper">
@@ -672,17 +646,22 @@
           </div>
         </div>
 
-        <!-- ===== FORMULAIRE CONTACT AVEC FORMSUBMIT ===== -->
+        <!-- ===== BOUTON EMAIL ===== -->
         <div class="contact-form">
-          <form action="https://formsubmit.co/roosbenjean46@gmail.com" method="POST">
-            <input type="text" name="name" placeholder="Votre nom complet" required>
-            <input type="email" name="email" placeholder="Votre adresse email" required>
-            <input type="text" name="subject" placeholder="Objet (ex: Offre de stage / Projet)">
-            <textarea name="message" placeholder="Parlez-moi de votre projet ou de votre offre..." required></textarea>
-            <button type="submit" class="btn btn-primary">
-              <i class="fas fa-paper-plane"></i> Envoyer le message
-            </button>
-          </form>
+          <div style="background: #f8fafc; padding: 50px 40px; border-radius: 20px; text-align: center; width: 100%;">
+            <i class="fas fa-envelope" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;"></i>
+            <h3 style="margin-bottom: 15px; color: var(--secondary);">Envoyez-moi un message</h3>
+            <p style="color: var(--text-light); margin-bottom: 25px; font-size: 1.05rem;">
+              Cliquez sur le bouton ci-dessous pour m'envoyer un email directement.<br>
+              <span style="font-size: 0.9rem;">(Votre logiciel de messagerie s'ouvrira)</span>
+            </p>
+            <a href="mailto:roosbenjean46@gmail.com?subject=Demande%20de%20contact%20-%20Portfolio&body=Bonjour%20Roosben%2C%0A%0AJe%20vous%20contacte%20via%20votre%20portfolio%20pour%20..." class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 45px;">
+              <i class="fas fa-paper-plane"></i> M'envoyer un email
+            </a>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light);">
+              📧 roosbenjean46@gmail.com
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -713,37 +692,6 @@
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
       });
-    });
-
-    // ===== FORMSUBMIT - Envoi sans recharger la page =====
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const btn = this.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-        btn.disabled = true;
-        
-        fetch(this.action, {
-            method: this.method,
-            body: new FormData(this),
-            headers: { 'Accept': 'application/json' }
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('✅ Votre message a été envoyé avec succès ! Je vous répondrai bientôt.');
-                this.reset();
-            } else {
-                alert('❌ Oops ! Une erreur est survenue. Veuillez réessayer.');
-            }
-        })
-        .catch(error => {
-            alert('❌ Oops ! Une erreur est survenue. Veuillez réessayer.');
-        })
-        .finally(() => {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
     });
   </script>
 
