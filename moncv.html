@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Roosben Jean</title>
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #eef2f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .cv-container {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 40px 90px rgba(15, 23, 42, 0.18);
+      display: grid;
+      grid-template-columns: 33% 67%;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    /* ===== SIDEBAR (GAUCHE) ===== */
+    .sidebar {
+      background: linear-gradient(145deg, #0f172a 0%, #2e1065 100%);
+      color: #e2e8f0;
+      padding: 50px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-pic {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.4);
+      background: #1e293b;
+      transition: transform 0.3s;
+    }
+    .profile-pic img:hover {
+      transform: scale(1.02);
+    }
+
+    .sidebar .section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-weight: 700;
+      color: #a5b4fc;
+      margin: 30px 0 14px 0;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+    .sidebar .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      word-break: break-word;
+    }
+
+    .contact-item i {
+      width: 22px;
+      color: #818cf8;
+      font-size: 1rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-item a:hover {
+      color: #ffffff;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .tags span {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #e2e8f0;
+      letter-spacing: 0.3px;
+      transition: 0.3s;
+    }
+
+    .tags span:hover {
+      background: #4f46e5;
+      color: white;
+      border-color: #4f46e5;
+      transform: translateY(-2px);
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      padding: 7px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+    }
+    .lang-item .level {
+      color: #94a3b8;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* ===== PARTIE PRINCIPALE (DROITE) ===== */
+    .main {
+      background: #ffffff;
+      padding: 50px 45px 45px 40px;
+    }
+
+    .main-header {
+      border-bottom: 3px solid #eef2ff;
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .main-header::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: #4f46e5;
+      border-radius: 10px;
+    }
+
+    .main-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .main-header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #4f46e5;
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .main .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #4f46e5;
+      margin: 35px 0 18px 0;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .main .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .main .section-title i {
+      font-size: 1rem;
+      color: #4f46e5;
+    }
+
+    .profile-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #334155;
+      background: #f8fafc;
+      padding: 20px 25px;
+      border-radius: 16px;
+      border-left: 4px solid #4f46e5;
+    }
+
+    /* ===== TIMELINE ===== */
+    .entry {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 28px;
+      border-left: 2px solid #e2e8f0;
+      padding-bottom: 5px;
+    }
+
+    .entry::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: #4f46e5;
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #4f46e5;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: #0f172a;
+    }
+
+    .entry-org {
+      font-weight: 600;
+      color: #4f46e5;
+      font-size: 0.95rem;
+    }
+
+    .entry-date {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 3px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .entry-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.7;
+      margin-top: 6px;
+    }
+
+    .entry-desc ul {
+      list-style: none;
+      padding-left: 4px;
+    }
+
+    .entry-desc ul li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 5px;
+    }
+
+    .entry-desc ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #4f46e5;
+      font-weight: 700;
+    }
+
+    .badge-projet {
+      display: inline-block;
+      background: #fef3c7;
+      color: #b45309;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 12px;
+      border-radius: 30px;
+      margin-left: 8px;
+    }
+
+    /* ===== COMPÉTENCES TECHNIQUES ===== */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .skill-tag {
+      background: #eef2ff;
+      color: #1e293b;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(79, 70, 229, 0.06);
+      letter-spacing: 0.2px;
+    }
+
+    .skill-tag:hover {
+      background: #4f46e5;
+      color: white;
+      border-color: #4f46e5;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+    }
+
+    /* ===== BOUTON IMPRESSION ===== */
+    .print-btn {
+      text-align: center;
+      margin-top: 25px;
+      grid-column: 1 / -1;
+      padding: 20px 0;
+      background: #f8fafc;
+    }
+
+    .print-btn button {
+      background: #0f172a;
+      color: white;
+      border: none;
+      padding: 14px 50px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+    }
+
+    .print-btn button:hover {
+      background: #4f46e5;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.3);
+    }
+
+    .print-btn button i {
+      margin-right: 10px;
+    }
+
+    /* ===== IMPRESSION PDF ===== */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+        min-height: auto;
+        display: block;
+      }
+
+      .cv-container {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        grid-template-columns: 33% 67%;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .sidebar {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background: #0f172a !important;
+      }
+
+      .profile-pic img {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+      }
+
+      .tags span, .skill-tag, .entry-date, .badge-projet {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .print-btn {
+        display: none !important;
+      }
+
+      .entry::before {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .main-header::after {
+        background: #4f46e5 !important;
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .cv-container {
+        grid-template-columns: 1fr;
+        border-radius: 20px;
+      }
+
+      .sidebar {
+        padding: 35px 25px;
+      }
+
+      .main {
+        padding: 30px 25px;
+      }
+
+      .main-header h1 {
+        font-size: 2.4rem;
+      }
+
+      .profile-pic img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .entry {
+        padding-left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+
+    <!-- ========================================= -->
+    <!-- SIDEBAR GAUCHE                            -->
+    <!-- ========================================= -->
+    <div class="sidebar">
+
+      <div class="profile-pic">
+        <img src="Roos.png" alt="Roosben Jean">
+      </div>
+
+      <!-- CONTACT -->
+      <div class="section-title"><i class="fas fa-address-card" style="margin-right: 8px;"></i> Contact</div>
+
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i> <span>+509 3387-3521</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i> <a href="mailto:roosbenjean46@gmail.com">roosbenjean46@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i> <span>Rue St-Preux, Peguv-Ville, Haïti</span>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-github"></i> <a href="https://github.com/roosbenjean46" target="_blank">github.com/roosbenjean46</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/roosben-jean-b54560235" target="_blank">linkedin.com/in/roosben-jean-b54560235</a>
+      </div>
+
+      <!-- LANGUES -->
+      <div class="section-title"><i class="fas fa-language" style="margin-right: 8px;"></i> Langues</div>
+      <div class="lang-item"><span>Créole</span> <span class="level">Maternelle</span></div>
+      <div class="lang-item"><span>Français</span> <span class="level">Courant/Soutenu</span></div>
+      <div class="lang-item"><span>Anglais</span> <span class="level">Technique</span></div>
+      <div class="lang-item"><span>Espagnol</span> <span class="level">Notions de base</span></div>
+
+      <!-- PASSIONS -->
+      <div class="section-title"><i class="fas fa-heart" style="margin-right: 8px;"></i> Passions</div>
+      <div class="tags">
+        <span>Dev Web/Mobile</span>
+        <span>Bases de données</span>
+        <span>Gestion de projets</span>
+        <span>Maintenance IT</span>
+        <span>Travail en équipe</span>
+        <span>Pensée critique</span>
+      </div>
+
+      <!-- SPORTS & LOISIRS -->
+      <div class="section-title"><i class="fas fa-futbol" style="margin-right: 8px;"></i> Sports & Loisirs</div>
+      <div class="tags">
+        <span>⚽ Football</span>
+        <span>🎵 Musique</span>
+        <span>🎮 Jeux vidéo</span>
+      </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- PARTIE PRINCIPALE DROITE                  -->
+    <!-- ========================================= -->
+    <div class="main">
+
+      <!-- EN-TÊTE -->
+      <div class="main-header">
+        <h1>ROOSBEN JEAN</h1>
+        <h2>Étudiant finissant en Informatique</h2>
+      </div>
+
+      <!-- PROFIL -->
+      <div class="section-title"><i class="fas fa-user"></i> Profil</div>
+      <p class="profile-text">
+        Étudiant finissant en Informatique, passionné par le développement web, les bases de données et les technologies émergentes.
+        Curieux et adaptable, je maîtrise rapidement les nouvelles technologies (dont l'IA) et je suis prêt à gérer,
+        maintenir et sécuriser un site web en entreprise ou pour toute autre structure.
+        Fort d'une expérience en tant que formateur et responsable d'institution, je sais transmettre mes connaissances et accompagner des équipes.
+      </p>
+
+      <!-- ======================================= -->
+      <!-- EXPÉRIENCES PROFESSIONNELLES            -->
+      <!-- ======================================= -->
+      <div class="section-title"><i class="fas fa-briefcase"></i> Expériences professionnelles</div>
+
+      <!-- Exp 1 : HECEFOP -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Responsable & Formateur en Informatique</span>
+          <span class="entry-date">2021 – Aujourd'hui</span>
+        </div>
+        <div class="entry-org">HECEFOP - Hellotechunlocking</div>
+        <div class="entry-desc">
+          <ul>
+            <li><strong>Responsable de l'institution :</strong> Gestion administrative et pédagogique du centre de formation.</li>
+            <li><strong>Formation IT :</strong> Enseignement dans plusieurs domaines : maintenance informatique, installation de caméras de surveillance, déblocage de téléphones, infographie, réseaux et sécurité.</li>
+            <li><strong>Conception de programmes :</strong> Élaboration des contenus de formation adaptés aux besoins du marché.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Exp 2 : KOZE JEN YO -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Créateur & Administrateur de site web</span>
+          <span class="entry-date">—</span>
+        </div>
+        <div class="entry-org">KOZE JEN YO</div>
+        <div class="entry-desc">
+          Conception, création et administration complète d'un site web pour l'organisation. Gestion des contenus, mise à jour régulière et maintenance technique.
+        </div>
+      </div>
+
+      <!-- ======================================= -->
+      <!-- PROJETS UNIVERSITAIRES                  -->
+      <!-- ======================================= -->
+      <div class="section-title"><i class="fas fa-laptop-code"></i> Projets universitaires <span class="badge-projet">🎓 Réalisations académiques</span></div>
+
+      <!-- Projet 1 : Java -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Application de Gestion Hôpital (Java)</span>
+          <span class="entry-date">Projet académique</span>
+        </div>
+        <div class="entry-org">Programmation orientée objet</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Développement d'une application de gestion hospitalière avec Java.</li>
+            <li>Conception d'une interface utilisateur intuitive pour la gestion des patients, des médecins et des rendez-vous.</li>
+            <li>Mise en œuvre des concepts POO : héritage, polymorphisme, encapsulation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projet 2 : C# -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Application de Gestion Hôpital (C#)</span>
+          <span class="entry-date">Projet académique</span>
+        </div>
+        <div class="entry-org">Programmation avec .NET / C#</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Création d'une application de gestion hospitalière avec C# et Windows Forms.</li>
+            <li>Connexion à une base de données (SQL Server ET MySql) pour le stockage des informations des patients.</li>
+            <li>Développement d'un tableau de bord pour le suivi des opérations hospitalières.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projet 3 : PHP (Transfert d'argent) -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Application de Transfert d'Argent (PHP)</span>
+          <span class="entry-date">Projet personnel / académique</span>
+        </div>
+        <div class="entry-org">Développement web – PHP / MySQL</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Conception et développement d'une application web de transfert d'argent.</li>
+            <li>Gestion des utilisateurs, des transactions et des soldes en temps réel.</li>
+            <li>Implémentation de mesures de sécurité (authentification, validation des opérations).</li>
+            <li><strong>Technologies :</strong> PHP, MySQL, HTML, CSS, JavaScript.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projet 4 : Oracle (Administration de BD) -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Administration de Bases de Données – Oracle</span>
+          <span class="entry-date">En cours</span>
+        </div>
+        <div class="entry-org">Cours d'administration de bases de données</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Modélisation et implémentation d'une base de données sous Oracle.</li>
+            <li>Création de tables, index, vues, procédures stockées et triggers.</li>
+            <li>Optimisation des requêtes et gestion des droits d'accès utilisateurs.</li>
+            <li>Gestion de la sauvegarde et de la restauration des données.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ======================================= -->
+      <!-- FORMATION                               -->
+      <!-- ======================================= -->
+      <div class="section-title"><i class="fas fa-graduation-cap"></i> Formation</div>
+
+      <div class="entry" style="border-left-color: #4f46e5; margin-bottom: 15px;">
+        <div class="entry-header">
+          <span class="entry-title">Licence en Sciences Informatiques</span>
+          <span class="entry-date">En cours (4e année)</span>
+        </div>
+        <div class="entry-org">Université de Technologie d'Haïti (UNITECH)</div>
+        <div class="entry-desc">
+          <strong>Domaines :</strong> Développement web, Bases de données, Réseaux, Sécurité, Maintenance, Programmation (Java, C#, PHP).
+        </div>
+      </div>
+
+      <div class="entry" style="border-left-color: #4f46e5;">
+        <div class="entry-header">
+          <span class="entry-title">Diplômes & certifications</span>
+          <span class="entry-date">—</span>
+        </div>
+        <div class="entry-desc">
+          • UNIREPR &nbsp;•&nbsp; CEFOCAP
+        </div>
+      </div>
+
+      <!-- ======================================= -->
+      <!-- COMPÉTENCES TECHNIQUES                  -->
+      <!-- ======================================= -->
+      <div class="section-title"><i class="fas fa-code"></i> Compétences techniques</div>
+      <div class="skills-grid">
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">PHP / Laravel</span>
+        <span class="skill-tag">Java (POO)</span>
+        <span class="skill-tag">C# / .NET</span>
+        <span class="skill-tag">MySQL / PostgreSQL</span>
+        <span class="skill-tag">Oracle (Administration)</span>
+        <span class="skill-tag">Python (Django)</span>
+        <span class="skill-tag">WordPress</span>
+        <span class="skill-tag">Git / GitHub</span>
+        <span class="skill-tag">Figma / UI</span>
+        <span class="skill-tag">cPanel / FTP</span>
+        <span class="skill-tag">Outils IA (Prompt)</span>
+        <span class="skill-tag">Maintenance & Sécurité</span>
+        <span class="skill-tag">Réseaux</span>
+      </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- BOUTON PDF                               -->
+    <!-- ========================================= -->
+    <div class="print-btn">
+      <button onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Télécharger mon CV en PDF
+      </button>
+      <p style="font-size: 0.8rem; color: #64748b; margin-top: 12px;">
+        Cliquez sur le bouton, puis choisissez <strong>"Enregistrer au format PDF"</strong>.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
