@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV - Roosben Jean</title>
+  <title>CV - Roosben Jean (A4 multi-pages)</title>
   <!-- Google Fonts (Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome (Icons) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* ===== RESET & VARIABLES ===== */
@@ -22,62 +22,63 @@
       font-family: 'Inter', sans-serif;
       background: #eef2f6;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      padding: 40px 20px;
+      padding: 30px 20px;
       line-height: 1.6;
     }
 
-    .cv-container {
-      max-width: 1100px;
-      width: 100%;
+    /* ===== PAGE A4 ===== */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
       background: #ffffff;
-      border-radius: 28px;
-      box-shadow: 0 40px 90px rgba(15, 23, 42, 0.18);
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      margin-bottom: 30px;
+      padding: 0;
       display: grid;
       grid-template-columns: 33% 67%;
       overflow: hidden;
-      transition: all 0.3s;
+      page-break-after: always;
+      break-after: page;
     }
 
     /* ===== SIDEBAR (GAUCHE) ===== */
     .sidebar {
       background: linear-gradient(145deg, #0f172a 0%, #2e1065 100%);
       color: #e2e8f0;
-      padding: 50px 30px;
+      padding: 40px 25px;
       display: flex;
       flex-direction: column;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
 
     .profile-pic {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .profile-pic img {
-      width: 150px;
-      height: 150px;
+      width: 134px;
+      height: 155px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 20px 40px rgba(79, 70, 229, 0.4);
       background: #1e293b;
-      transition: transform 0.3s;
-    }
-    .profile-pic img:hover {
-      transform: scale(1.02);
     }
 
     .sidebar .section-title {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 2.5px;
       font-weight: 700;
       color: #a5b4fc;
-      margin: 30px 0 14px 0;
+      margin: 28px 0 12px 0;
       border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
     }
     .sidebar .section-title:first-of-type {
       margin-top: 0;
@@ -86,17 +87,17 @@
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-      font-size: 0.9rem;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
       color: #cbd5e1;
       word-break: break-word;
     }
 
     .contact-item i {
-      width: 22px;
+      width: 20px;
       color: #818cf8;
-      font-size: 1rem;
+      font-size: 0.9rem;
       text-align: center;
       flex-shrink: 0;
     }
@@ -104,7 +105,6 @@
     .contact-item a {
       color: #cbd5e1;
       text-decoration: none;
-      transition: color 0.3s;
     }
     .contact-item a:hover {
       color: #ffffff;
@@ -113,52 +113,43 @@
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
       margin-top: 4px;
     }
 
     .tags span {
       background: rgba(255, 255, 255, 0.07);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 6px 16px;
+      padding: 4px 14px;
       border-radius: 50px;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 500;
       color: #e2e8f0;
-      letter-spacing: 0.3px;
-      transition: 0.3s;
-    }
-
-    .tags span:hover {
-      background: #4f46e5;
-      color: white;
-      border-color: #4f46e5;
-      transform: translateY(-2px);
     }
 
     .lang-item {
       display: flex;
       justify-content: space-between;
-      font-size: 0.9rem;
-      padding: 7px 0;
+      font-size: 0.8rem;
+      padding: 5px 0;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
     }
     .lang-item .level {
       color: #94a3b8;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
     }
 
-    /* ===== PARTIE PRINCIPALE (DROITE) ===== */
+    /* ===== MAIN (DROITE) ===== */
     .main {
       background: #ffffff;
-      padding: 50px 45px 45px 40px;
+      padding: 40px 35px 35px 30px;
     }
 
     .main-header {
       border-bottom: 3px solid #eef2ff;
-      padding-bottom: 22px;
-      margin-bottom: 30px;
+      padding-bottom: 18px;
+      margin-bottom: 25px;
       position: relative;
     }
     .main-header::after {
@@ -173,7 +164,7 @@
     }
 
     .main-header h1 {
-      font-size: 3rem;
+      font-size: 2.6rem;
       font-weight: 700;
       color: #0f172a;
       letter-spacing: 1px;
@@ -181,22 +172,21 @@
     }
 
     .main-header h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 400;
       color: #4f46e5;
-      margin-top: 4px;
-      letter-spacing: 0.3px;
+      margin-top: 2px;
     }
 
     .main .section-title {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 700;
       color: #4f46e5;
-      margin: 35px 0 18px 0;
+      margin: 28px 0 14px 0;
       border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 8px;
+      padding-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -206,27 +196,27 @@
     }
 
     .main .section-title i {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #4f46e5;
     }
 
     .profile-text {
-      font-size: 0.95rem;
-      line-height: 1.8;
+      font-size: 0.9rem;
+      line-height: 1.7;
       color: #334155;
       background: #f8fafc;
-      padding: 20px 25px;
-      border-radius: 16px;
+      padding: 16px 20px;
+      border-radius: 14px;
       border-left: 4px solid #4f46e5;
     }
 
     /* ===== TIMELINE ===== */
     .entry {
       position: relative;
-      padding-left: 25px;
-      margin-bottom: 28px;
+      padding-left: 22px;
+      margin-bottom: 22px;
       border-left: 2px solid #e2e8f0;
-      padding-bottom: 5px;
+      padding-bottom: 2px;
     }
 
     .entry::before {
@@ -247,38 +237,38 @@
       justify-content: space-between;
       align-items: baseline;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 2px;
+      gap: 6px;
+      margin-bottom: 1px;
     }
 
     .entry-title {
       font-weight: 700;
-      font-size: 1.08rem;
+      font-size: 1rem;
       color: #0f172a;
     }
 
     .entry-org {
       font-weight: 600;
       color: #4f46e5;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
     }
 
     .entry-date {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
       color: #64748b;
       background: #f1f5f9;
-      padding: 3px 14px;
+      padding: 2px 12px;
       border-radius: 50px;
       letter-spacing: 0.3px;
       white-space: nowrap;
     }
 
     .entry-desc {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #475569;
-      line-height: 1.7;
-      margin-top: 6px;
+      line-height: 1.6;
+      margin-top: 4px;
     }
 
     .entry-desc ul {
@@ -288,8 +278,8 @@
 
     .entry-desc ul li {
       position: relative;
-      padding-left: 22px;
-      margin-bottom: 5px;
+      padding-left: 20px;
+      margin-bottom: 3px;
     }
 
     .entry-desc ul li::before {
@@ -304,51 +294,38 @@
       display: inline-block;
       background: #fef3c7;
       color: #b45309;
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       padding: 2px 12px;
       border-radius: 30px;
-      margin-left: 8px;
+      margin-left: 6px;
     }
 
-    /* ===== COMPÉTENCES TECHNIQUES ===== */
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 6px;
     }
 
     .skill-tag {
       background: #eef2ff;
       color: #1e293b;
-      padding: 8px 20px;
+      padding: 5px 16px;
       border-radius: 50px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       border: 1px solid transparent;
-      transition: all 0.25s ease;
       box-shadow: 0 2px 6px rgba(79, 70, 229, 0.06);
-      letter-spacing: 0.2px;
-    }
-
-    .skill-tag:hover {
-      background: #4f46e5;
-      color: white;
-      border-color: #4f46e5;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
     }
 
     /* ===== BOUTON IMPRESSION ===== */
     .print-btn {
       text-align: center;
-      margin-top: 25px;
-      grid-column: 1 / -1;
-      padding: 20px 0;
-      background: #f8fafc;
+      margin: 10px 0 30px;
+      width: 210mm;
     }
 
     .print-btn button {
@@ -375,21 +352,23 @@
       margin-right: 10px;
     }
 
-    /* ===== IMPRESSION PDF ===== */
+    /* ===== IMPRESSION ===== */
     @media print {
       body {
         background: white;
         padding: 0;
         margin: 0;
-        min-height: auto;
         display: block;
       }
 
-      .cv-container {
-        max-width: 100%;
+      .page {
+        width: 100%;
+        min-height: 100vh;
         border-radius: 0;
         box-shadow: none;
-        grid-template-columns: 33% 67%;
+        margin: 0 auto;
+        page-break-after: always;
+        break-after: page;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -400,13 +379,13 @@
         background: #0f172a !important;
       }
 
-      .profile-pic img {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        border-color: rgba(255, 255, 255, 0.2) !important;
-      }
-
-      .tags span, .skill-tag, .entry-date, .badge-projet {
+      .profile-pic img,
+      .tags span,
+      .skill-tag,
+      .entry-date,
+      .badge-projet,
+      .entry::before,
+      .main-header::after {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
@@ -415,124 +394,74 @@
         display: none !important;
       }
 
-      .entry::before {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+      .entry {
+        break-inside: avoid;
+        page-break-inside: avoid;
       }
-
-      .main-header::after {
-        background: #4f46e5 !important;
+      .main .section-title {
+        break-after: avoid;
       }
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .cv-container {
+    @media (max-width: 800px) {
+      .page {
+        width: 100%;
+        min-height: auto;
         grid-template-columns: 1fr;
-        border-radius: 20px;
+        border-radius: 16px;
       }
-
-      .sidebar {
-        padding: 35px 25px;
-      }
-
-      .main {
-        padding: 30px 25px;
-      }
-
-      .main-header h1 {
-        font-size: 2.4rem;
-      }
-
-      .profile-pic img {
-        width: 130px;
-        height: 130px;
-      }
-
-      .entry-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .entry {
-        padding-left: 20px;
+      .print-btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="cv-container">
+  <!-- ========================================================= -->
+  <!-- PAGE 1 : IDENTITÉ, PROFIL, EXPÉRIENCES, FORMATION         -->
+  <!-- ========================================================= -->
+  <div class="page">
 
-    <!-- ========================================= -->
-    <!-- SIDEBAR GAUCHE                            -->
-    <!-- ========================================= -->
+    <!-- SIDEBAR -->
     <div class="sidebar">
-
       <div class="profile-pic">
         <img src="Roos.png" alt="Roosben Jean">
       </div>
 
-      <!-- CONTACT -->
-      <div class="section-title"><i class="fas fa-address-card" style="margin-right: 8px;"></i> Contact</div>
+      <div class="section-title"><i class="" style="margin-right: 8px;"></i> Contact</div>
+      <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+509 3387-3521</span></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:roosbenjean46@gmail.com">roosbenjean46@gmail.com</a></div>
+      <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Rue St-Preux, Peguv-Ville, Haïti</span></div>
+      <div class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/roosbenjean46" target="_blank">github.com/roosbenjean46</a></div>
+      <div class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/roosben-jean-b54560235" target="_blank">linkedin.com/in/roosben-jean</a></div>
 
-      <div class="contact-item">
-        <i class="fas fa-phone-alt"></i> <span>+509 3387-3521</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i> <a href="mailto:roosbenjean46@gmail.com">roosbenjean46@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i> <span>Rue St-Preux, Peguv-Ville, Haïti</span>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-github"></i> <a href="https://github.com/roosbenjean46" target="_blank">github.com/roosbenjean46</a>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/roosben-jean-b54560235" target="_blank">linkedin.com/in/roosben-jean-b54560235</a>
-      </div>
-
-      <!-- LANGUES -->
-      <div class="section-title"><i class="fas fa-language" style="margin-right: 8px;"></i> Langues</div>
+      <div class="section-title"><i class="" style="margin-right: 8px;"></i> Langues</div>
       <div class="lang-item"><span>Créole</span> <span class="level">Maternelle</span></div>
       <div class="lang-item"><span>Français</span> <span class="level">Courant/Soutenu</span></div>
       <div class="lang-item"><span>Anglais</span> <span class="level">Technique</span></div>
       <div class="lang-item"><span>Espagnol</span> <span class="level">Notions de base</span></div>
 
-      <!-- PASSIONS -->
-      <div class="section-title"><i class="fas fa-heart" style="margin-right: 8px;"></i> Passions</div>
+      <div class="section-title"><i class="" style="margin-right: 8px;"></i> Passions</div>
       <div class="tags">
-        <span>Dev Web/Mobile</span>
-        <span>Bases de données</span>
-        <span>Gestion de projets</span>
-        <span>Maintenance IT</span>
-        <span>Travail en équipe</span>
-        <span>Pensée critique</span>
+        <span>Dev Web/Mobile</span><span>Bases de données</span><span>Gestion de projets</span>
+        <span>Maintenance IT</span><span>Travail en équipe</span><span>Pensée critique</span>
       </div>
 
-      <!-- SPORTS & LOISIRS -->
-      <div class="section-title"><i class="fas fa-futbol" style="margin-right: 8px;"></i> Sports & Loisirs</div>
+      <div class="section-title"><i class="" style="margin-right: 8px;"></i> Sports & Loisirs</div>
       <div class="tags">
-        <span>⚽ Football</span>
-        <span>🎵 Musique</span>
-        <span>🎮 Jeux vidéo</span>
+        <span> Football</span><span> Musique</span><span> Jeux vidéo</span>
       </div>
-
     </div>
 
-    <!-- ========================================= -->
-    <!-- PARTIE PRINCIPALE DROITE                  -->
-    <!-- ========================================= -->
+    <!-- MAIN -->
     <div class="main">
-
-      <!-- EN-TÊTE -->
       <div class="main-header">
         <h1>ROOSBEN JEAN</h1>
         <h2>Étudiant finissant en Informatique</h2>
       </div>
 
-      <!-- PROFIL -->
-      <div class="section-title"><i class="fas fa-user"></i> Profil</div>
+      <div class="section-title"><i class=""></i> Profil</div>
       <p class="profile-text">
         Étudiant finissant en Informatique, passionné par le développement web, les bases de données et les technologies émergentes.
         Curieux et adaptable, je maîtrise rapidement les nouvelles technologies (dont l'IA) et je suis prêt à gérer,
@@ -540,12 +469,9 @@
         Fort d'une expérience en tant que formateur et responsable d'institution, je sais transmettre mes connaissances et accompagner des équipes.
       </p>
 
-      <!-- ======================================= -->
-      <!-- EXPÉRIENCES PROFESSIONNELLES            -->
-      <!-- ======================================= -->
-      <div class="section-title"><i class="fas fa-briefcase"></i> Expériences professionnelles</div>
+      <!-- EXPÉRIENCES -->
+      <div class="section-title"><i class=""></i> Expériences professionnelles</div>
 
-      <!-- Exp 1 : HECEFOP -->
       <div class="entry">
         <div class="entry-header">
           <span class="entry-title">Responsable & Formateur en Informatique</span>
@@ -554,14 +480,13 @@
         <div class="entry-org">HECEFOP - Hellotechunlocking</div>
         <div class="entry-desc">
           <ul>
-            <li><strong>Responsable de l'institution :</strong> Gestion administrative et pédagogique du centre de formation.</li>
-            <li><strong>Formation IT :</strong> Enseignement dans plusieurs domaines : maintenance informatique, installation de caméras de surveillance, déblocage de téléphones, infographie, réseaux et sécurité.</li>
-            <li><strong>Conception de programmes :</strong> Élaboration des contenus de formation adaptés aux besoins du marché.</li>
+            <li><strong>Responsable de l'institution :</strong> Gestion administrative et pédagogique.</li>
+            <li><strong>Formation IT :</strong> Maintenance, caméras, déblocage, infographie, réseaux, sécurité.</li>
+            <li><strong>Conception de programmes :</strong> Élaboration des contenus adaptés au marché.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Exp 2 : KOZE JEN YO -->
       <div class="entry">
         <div class="entry-header">
           <span class="entry-title">Créateur & Administrateur de site web</span>
@@ -569,87 +494,14 @@
         </div>
         <div class="entry-org">KOZE JEN YO</div>
         <div class="entry-desc">
-          Conception, création et administration complète d'un site web pour l'organisation. Gestion des contenus, mise à jour régulière et maintenance technique.
+          Conception, création et administration complète du site. Gestion des contenus, mises à jour et maintenance technique.
         </div>
       </div>
 
-      <!-- ======================================= -->
-      <!-- PROJETS UNIVERSITAIRES                  -->
-      <!-- ======================================= -->
-      <div class="section-title"><i class="fas fa-laptop-code"></i> Projets universitaires <span class="badge-projet">🎓 Réalisations académiques</span></div>
+      <!-- FORMATION -->
+      <div class="section-title"><i class=""></i> Formation</div>
 
-      <!-- Projet 1 : Java -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Application de Gestion Hôpital (Java)</span>
-          <span class="entry-date">Projet académique</span>
-        </div>
-        <div class="entry-org">Programmation orientée objet</div>
-        <div class="entry-desc">
-          <ul>
-            <li>Développement d'une application de gestion hospitalière avec Java.</li>
-            <li>Conception d'une interface utilisateur intuitive pour la gestion des patients, des médecins et des rendez-vous.</li>
-            <li>Mise en œuvre des concepts POO : héritage, polymorphisme, encapsulation.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Projet 2 : C# -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Application de Gestion Hôpital (C#)</span>
-          <span class="entry-date">Projet académique</span>
-        </div>
-        <div class="entry-org">Programmation avec .NET / C#</div>
-        <div class="entry-desc">
-          <ul>
-            <li>Création d'une application de gestion hospitalière avec C# et Windows Forms.</li>
-            <li>Connexion à une base de données (SQL Server ET MySql) pour le stockage des informations des patients.</li>
-            <li>Développement d'un tableau de bord pour le suivi des opérations hospitalières.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Projet 3 : PHP (Transfert d'argent) -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Application de Transfert d'Argent (PHP)</span>
-          <span class="entry-date">Projet personnel / académique</span>
-        </div>
-        <div class="entry-org">Développement web – PHP / MySQL</div>
-        <div class="entry-desc">
-          <ul>
-            <li>Conception et développement d'une application web de transfert d'argent.</li>
-            <li>Gestion des utilisateurs, des transactions et des soldes en temps réel.</li>
-            <li>Implémentation de mesures de sécurité (authentification, validation des opérations).</li>
-            <li><strong>Technologies :</strong> PHP, MySQL, HTML, CSS, JavaScript.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Projet 4 : Oracle (Administration de BD) -->
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Administration de Bases de Données – Oracle</span>
-          <span class="entry-date">En cours</span>
-        </div>
-        <div class="entry-org">Cours d'administration de bases de données</div>
-        <div class="entry-desc">
-          <ul>
-            <li>Modélisation et implémentation d'une base de données sous Oracle.</li>
-            <li>Création de tables, index, vues, procédures stockées et triggers.</li>
-            <li>Optimisation des requêtes et gestion des droits d'accès utilisateurs.</li>
-            <li>Gestion de la sauvegarde et de la restauration des données.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- ======================================= -->
-      <!-- FORMATION                               -->
-      <!-- ======================================= -->
-      <div class="section-title"><i class="fas fa-graduation-cap"></i> Formation</div>
-
-      <div class="entry" style="border-left-color: #4f46e5; margin-bottom: 15px;">
+      <div class="entry" style="border-left-color: #4f46e5; margin-bottom: 12px;">
         <div class="entry-header">
           <span class="entry-title">Licence en Sciences Informatiques</span>
           <span class="entry-date">En cours (4e année)</span>
@@ -665,15 +517,98 @@
           <span class="entry-title">Diplômes & certifications</span>
           <span class="entry-date">—</span>
         </div>
+        <div class="entry-desc">• UNIREPR &nbsp;•&nbsp; CEFOCAP</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- PAGE 2 : PROJETS UNIVERSITAIRES + COMPÉTENCES TECHNIQUES   -->
+  <!-- ========================================================= -->
+  <div class="page">
+
+    <!-- SIDEBAR (vide sur la 2e page pour un rendu épuré) -->
+    <div class="sidebar" style="background: #f8fafc; color: #0f172a;">
+      <!-- On garde le fond clair pour faire comme une continuation discrète -->
+      <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #94a3b8; font-size: 0.8rem; text-align: center; padding: 20px;">
+                
+        <div style="margin-top: 15px; width: 60px; height: 2px; background: #e2e8f0;"></div>
+      </div>
+    </div>
+
+    <!-- MAIN : Projets universitaires + Compétences -->
+    <div class="main">
+
+      <div class="section-title"><i class=""></i> Projets universitaires <span class="badge-projet">🎓 Académiques</span></div>
+
+      <!-- Projet 1 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Application de Gestion Hôpital (Java)</span>
+          <span class="entry-date">Projet POO</span>
+        </div>
+        <div class="entry-org">Programmation orientée objet</div>
         <div class="entry-desc">
-          • UNIREPR &nbsp;•&nbsp; CEFOCAP
+          <ul>
+            <li>Développement d'une application de gestion hospitalière avec Java.</li>
+            <li>Interface pour patients, médecins et rendez-vous.</li>
+            <li>Mise en œuvre : héritage, polymorphisme, encapsulation.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- ======================================= -->
-      <!-- COMPÉTENCES TECHNIQUES                  -->
-      <!-- ======================================= -->
-      <div class="section-title"><i class="fas fa-code"></i> Compétences techniques</div>
+      <!-- Projet 2 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Application de Gestion Hôpital (C#)</span>
+          <span class="entry-date">Projet .NET</span>
+        </div>
+        <div class="entry-org">Programmation avec .NET / C#</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Création avec C# et Windows Forms.</li>
+            <li>Connexion à SQL Server et MySQL pour le stockage des patients.</li>
+            <li>Tableau de bord pour le suivi des opérations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Application de Transfert d'Argent (PHP)</span>
+          <span class="entry-date">Projet web</span>
+        </div>
+        <div class="entry-org">PHP / MySQL</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Application web de transfert d'argent.</li>
+            <li>Gestion des utilisateurs, transactions et soldes en temps réel.</li>
+            <li>Sécurité : authentification, validation des opérations.</li>
+            <li><strong>Technologies :</strong> PHP, MySQL, HTML, CSS, JS.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Projet 4 -->
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Administration de Bases de Données – Oracle</span>
+          <span class="entry-date">En cours</span>
+        </div>
+        <div class="entry-org">Cours d'administration de bases de données</div>
+        <div class="entry-desc">
+          <ul>
+            <li>Modélisation et implémentation sous Oracle.</li>
+            <li>Tables, index, vues, procédures stockées, triggers.</li>
+            <li>Optimisation des requêtes et gestion des droits d'accès.</li>
+            <li>Sauvegarde et restauration des données.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COMPÉTENCES TECHNIQUES -->
+      <div class="section-title"><i class=""></i> Compétences techniques</div>
       <div class="skills-grid">
         <span class="skill-tag">HTML / CSS</span>
         <span class="skill-tag">JavaScript</span>
@@ -681,7 +616,7 @@
         <span class="skill-tag">Java (POO)</span>
         <span class="skill-tag">C# / .NET</span>
         <span class="skill-tag">MySQL / PostgreSQL</span>
-        <span class="skill-tag">Oracle (Administration)</span>
+        <span class="skill-tag">Oracle (Admin)</span>
         <span class="skill-tag">Python (Django)</span>
         <span class="skill-tag">WordPress</span>
         <span class="skill-tag">Git / GitHub</span>
@@ -690,22 +625,28 @@
         <span class="skill-tag">Outils IA (Prompt)</span>
         <span class="skill-tag">Maintenance & Sécurité</span>
         <span class="skill-tag">Réseaux</span>
+        <span class="skill-tag">Docker (notions)</span>
+      </div>
+
+      <!-- Petit espace pour la mise en page -->
+      <div style="margin-top: 20px; color: #94a3b8; font-size: 0.7rem; border-top: 1px solid #f1f5f9; padding-top: 12px; text-align: right;">
+     
       </div>
 
     </div>
+  </div>
 
-    <!-- ========================================= -->
-    <!-- BOUTON PDF                               -->
-    <!-- ========================================= -->
-    <div class="print-btn">
-      <button onclick="window.print()">
-        <i class="fas fa-file-pdf"></i> Télécharger mon CV en PDF
-      </button>
-      <p style="font-size: 0.8rem; color: #64748b; margin-top: 12px;">
-        Cliquez sur le bouton, puis choisissez <strong>"Enregistrer au format PDF"</strong>.
-      </p>
-    </div>
-
+  <!-- ========================================================= -->
+  <!-- BOUTON D'IMPRESSION PDF (hors pages)                      -->
+  <!-- ========================================================= -->
+  <div class="print-btn">
+    <button onclick="window.print()">
+      <i class="fas fa-file-pdf"></i> Télécharger mon CV en PDF (A4)
+    </button>
+    <p style="font-size: 0.8rem; color: #64748b; margin-top: 10px;">
+      Cliquez sur le bouton, puis choisissez <strong>"Enregistrer au format PDF"</strong>.
+      <br>Le CV s'étend sur 2 pages A4.
+    </p>
   </div>
 
 </body>
